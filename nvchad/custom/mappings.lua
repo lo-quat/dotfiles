@@ -17,7 +17,8 @@ M.general = {
         end
       end,
       desc = "CopilotChat - Quick chat",
-    }
+    },
+    ["<leader>yp"] = { ":let @+=expand('%')<CR>", "yank copy" },
   },
 }
 M.disabled = {
