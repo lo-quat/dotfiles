@@ -40,20 +40,20 @@ return {
     lazy=false,
   },
 
-  -- {
-  --   "CopilotC-Nvim/CopilotChat.nvim",
-  --   branch = "canary",
-  --   dependencies = {
-  --     { "github/copilot.vim" },
-  --     { "nvim-lua/plenary.nvim" },
-  --   },
-  --   opts = {
-  --     debug = true, -- Enable debugging
-  --     -- See Configuration section for rest
-  --   },
-  --   lazy = false,
-  --   -- See Commands section for default commands if you want to lazy load on them
-  -- },
+  {
+    "CopilotC-Nvim/CopilotChat.nvim",
+    branch = "canary",
+    dependencies = {
+      { "github/copilot.vim" },
+      { "nvim-lua/plenary.nvim" },
+    },
+    opts = {
+      debug = true, -- Enable debugging
+      -- See Configuration section for rest
+    },
+    lazy = false,
+    -- See Commands section for default commands if you want to lazy load on them
+  },
 
   {
     "nvim-telescope/telescope-file-browser.nvim",

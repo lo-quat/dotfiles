@@ -1,5 +1,6 @@
 {
   "Comment.nvim": { "branch": "master", "commit": "0236521ea582747b58869cb72f70ccfa967d2e89" },
+  "CopilotChat.nvim": { "branch": "canary", "commit": "82923efe22b604cf9c0cad0bb2a74aa9247755ab" },
   "LuaSnip": { "branch": "master", "commit": "de1a287c9cb525ae52bc846e8f6207e5ef1da5ac" },
   "NvChad": { "branch": "v2.5", "commit": "020b8e4428d6d6ed3cf1d6afc899cb2f76aab1a0" },
   "base46": { "branch": "v2.5", "commit": "7f9a7092402ae8951877f698f1c2291aa47c2903" },
