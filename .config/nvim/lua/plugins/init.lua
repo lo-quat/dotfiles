@@ -37,7 +37,7 @@ return {
 
   {
     "github/copilot.vim",
-    lazy=false,
+    event = { "InsertEnter" },
   },
 
   {
@@ -51,7 +51,7 @@ return {
       debug = true, -- Enable debugging
       -- See Configuration section for rest
     },
-    lazy = false,
+    cmd = { "CopilotChat" },
     -- See Commands section for default commands if you want to lazy load on them
   },
 
