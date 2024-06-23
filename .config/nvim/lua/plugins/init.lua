@@ -38,6 +38,10 @@ return {
   {
     "github/copilot.vim",
     event = { "InsertEnter" },
+    ft = { "gitcommit" },
+    config = function()
+      vim.g.copilot_filetypes = { gitcommit = true }
+    end,
   },
 
   {
