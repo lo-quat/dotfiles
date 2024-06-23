@@ -55,8 +55,17 @@ return {
       debug = true, -- Enable debugging
       -- See Configuration section for rest
     },
-    cmd = { "CopilotChat" },
-    -- See Commands section for default commands if you want to lazy load on them
+    cmd = { "CopilotChat", "CopilotChatExplain" },
+    config = function()
+      require("CopilotChat").setup({
+        show_help = "yes",
+        prompts = {
+          Explain = {
+              prompt = "/COPILOT_EXPLAIN 選択範囲のコード処理を日本語で解説してください"
+          },
+        }
+      })
+    end,
   },
 
   {
