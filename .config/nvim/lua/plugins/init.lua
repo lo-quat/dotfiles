@@ -100,7 +100,6 @@ return {
         },
         border = {},
       },
-      extensions_list = { "themes", "terms" },
     })
   }
 }
