@@ -63,6 +63,11 @@ return {
           Explain = {
               prompt = "/COPILOT_EXPLAIN 選択範囲のコード処理を日本語で解説してください"
           },
+        },
+        mappings = {
+          complete = {
+            insert ='',
+          }
         }
       })
     end,
