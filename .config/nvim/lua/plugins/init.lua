@@ -81,11 +81,6 @@ return {
   },
 
   {
-    "nvim-telescope/telescope-file-browser.nvim",
-    dependencies = { "nvim-telescope/telescope.nvim", "nvim-lua/plenary.nvim" },
-  },
-
-  {
     "nvim-telescope/telescope.nvim",
     dependencies = {
       {
@@ -94,7 +89,6 @@ return {
         -- For major updates, this must be adjusted manually.
         version = "^1.0.0",
       },
-      "nvim-telescope/telescope-file-browser.nvim",
     },
 
     require("telescope").setup({
