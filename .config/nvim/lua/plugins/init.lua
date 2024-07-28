@@ -65,7 +65,7 @@ return {
     cmd = { "CopilotChat", "CopilotChatExplain" },
     config = function()
       require("CopilotChat").setup({
-        show_help = "yes",
+        show_help = false,
         prompts = {
           Explain = {
               prompt = "/COPILOT_EXPLAIN 選択範囲のコード処理を日本語で解説してください"
