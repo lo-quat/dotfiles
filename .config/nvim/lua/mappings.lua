@@ -11,3 +11,4 @@ map("n", "<leader>fw", ":lua require('telescope').extensions.live_grep_args.live
 map("n", "<leader>gt", ":Telescope git_status initial_mode=normal<CR>", { desc = "Telescope file browser" })
 map("n", "<leader>gc", ":CopilotChat<CR>", { desc = "GitHub Copilot chat" })
 map("n", "<leader>yp", ":let @+=expand('%:~:.')<CR>", { desc = "Copy relative path to clipboard" })
+map("t", "<Esc>", "<C-\\><C-n>", { desc = "Enter terminal nomal mode" })
