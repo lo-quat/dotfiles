@@ -1,0 +1,9 @@
+[commit]
+	verbose = true
+[core]
+	editor = nvim
+[user]
+	name = Tokuma Yamaguchi
+	email = tokuma.yamaguchi@gmail.com
+[alias]
+	openpr = "!f() { gh browse -- `git log --merges --oneline --reverse --ancestry-path $1...develop | grep 'Merge pull request #' | head -n 1 | cut -f5 -d' ' | sed -e 's%#%%'`; }; f"
