@@ -50,7 +50,7 @@ _G.open_pr_with_current_line_git_log = function()
   handle:close()
   local commit_hash = result:match("commit (%w+)")
   if commit_hash then
-    vim.cmd('!git openpr ' .. commit_hash)
+    vim.fn.jobstart('git openpr ' .. commit_hash, {detach = true})
   else
     print("No commit hash found for the current line.")
   end
