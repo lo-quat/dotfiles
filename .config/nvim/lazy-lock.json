@@ -26,5 +26,6 @@
   "telescope-live-grep-args.nvim": { "branch": "master", "commit": "8ad632f793fd437865f99af5684f78300dac93fb" },
   "telescope.nvim": { "branch": "master", "commit": "3b1600d0fd5172ad9fae00987362ca0ef3d8895d" },
   "ui": { "branch": "v2.5", "commit": "c96897a55c4b6498faf8da6f28f90367770cc2bd" },
+  "vim-slim": { "branch": "master", "commit": "a0a57f75f20a03d5fa798484743e98f4af623926" },
   "which-key.nvim": { "branch": "main", "commit": "6c1584eb76b55629702716995cca4ae2798a9cca" }
 }

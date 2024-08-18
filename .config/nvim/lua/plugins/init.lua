@@ -102,5 +102,10 @@ return {
         border = {},
       },
     })
-  }
+  },
+
+  {
+    "slim-template/vim-slim",
+    ft = "slim"
+  },
 }
