@@ -12,3 +12,5 @@ map("n", "<leader>gt", ":Telescope git_status initial_mode=normal<CR>", { desc =
 map("n", "<leader>gc", ":CopilotChat<CR>", { desc = "GitHub Copilot chat" })
 map("n", "<leader>yp", ":let @+=expand('%:~:.')<CR>", { desc = "Copy relative path to clipboard" })
 map("t", "<Esc>", "<C-\\><C-n>", { desc = "Enter terminal nomal mode" })
+map("n", "<C-p>", ":lua require('nvchad.tabufline').move_buf(1)<CR>", { desc = "Move buffer right" })
+map("n", "<C-q>", ":lua require('nvchad.tabufline').move_buf(-1)<CR>", { desc = "Move buffer left" })
