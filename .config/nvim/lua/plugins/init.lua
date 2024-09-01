@@ -1,12 +1,5 @@
 return {
   {
-    "lewis6991/gitsigns.nvim",
-    config = function()
-      require "configs.gitsigns"
-    end,
-  },
-
-  {
     "stevearc/conform.nvim",
     -- event = 'BufWritePre', -- uncomment for format on save
     config = function()
