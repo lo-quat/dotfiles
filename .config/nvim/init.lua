@@ -57,3 +57,5 @@ _G.open_pr_with_current_line_git_log = function()
 end
 
 vim.cmd('command! Openpr lua open_pr_with_current_line_git_log()')
+
+vim.cmd('language en_US')
