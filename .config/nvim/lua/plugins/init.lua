@@ -50,7 +50,7 @@ return {
         filetypes = {
           gitcommit = true,
         },
-        copilot_node_command = vim.fn.expand("$HOME") .. "/.nodenv/versions/22.3.0/bin/node",
+        copilot_node_command = vim.fn.expand("$HOME") .. "/.nodenv/versions/22.11.0/bin/node",
       })
     end,
     lazy = true,
