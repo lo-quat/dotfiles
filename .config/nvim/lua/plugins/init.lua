@@ -40,7 +40,18 @@ return {
     cmd = "Copilot",
     event = "InsertEnter",
     config = function()
-      require("copilot").setup({})
+      require("copilot").setup({
+        panel = {
+          auto_refresh = true,
+        },
+        suggestion = {
+          auto_trigger = true,
+        },
+        filetypes = {
+          gitcommit = true,
+        },
+        copilot_node_command = vim.fn.expand("$HOME") .. "/.nodenv/versions/22.3.0/bin/node",
+      })
     end,
     lazy = true,
   },
