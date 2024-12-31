@@ -58,7 +58,7 @@ return {
 
   {
     "CopilotC-Nvim/CopilotChat.nvim",
-    branch = "canary",
+    branch = "main",
     opts = {
       debug = true, -- Enable debugging
       -- See Configuration section for rest
