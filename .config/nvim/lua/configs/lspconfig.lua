@@ -21,3 +21,14 @@ lspconfig.ts_ls.setup {
   on_init = on_init,
   capabilities = capabilities,
 }
+
+lspconfig.ruby_lsp.setup {
+  cmd = { "bundle", "exec", "ruby-lsp" },
+  on_attach = on_attach,
+  on_init = on_init,
+  capabilities = capabilities,
+  init_options = {
+    formatter = "rubocop",
+    linters = { "rubocop" },
+  },
+}
