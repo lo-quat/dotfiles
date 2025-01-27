@@ -3,8 +3,9 @@ local options = {
     lua = { "stylua" },
     typescript = { "prettierd" },
     typescriptreact = { "prettierd" },
-    -- css = { "prettier" },
-    -- html = { "prettier" },
+    ruby = { "ruby_lsp" },
+    css = { "prettier" },
+    html = { "prettier" },
   },
 
   format_on_save = {
