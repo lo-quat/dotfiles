@@ -1,7 +1,7 @@
 return {
   {
     "stevearc/conform.nvim",
-    event = 'BufWritePre', -- uncomment for format on save
+    event = "BufWritePre", -- uncomment for format on save
     config = function()
       require "configs.conform"
     end,
@@ -16,23 +16,29 @@ return {
   },
 
   {
-  	"williamboman/mason.nvim",
-  	opts = {
-  		ensure_installed = {
-  			"lua-language-server", "stylua",
-  			"html-lsp", "css-lsp" , "prettier"
-  		},
-  	},
+    "williamboman/mason.nvim",
+    opts = {
+      ensure_installed = {
+        "lua-language-server",
+        "stylua",
+        "html-lsp",
+        "css-lsp",
+        "prettier",
+      },
+    },
   },
 
   {
-  	"nvim-treesitter/nvim-treesitter",
-  	opts = {
-  		ensure_installed = {
-  			"vim", "lua", "vimdoc",
-       "html", "css"
-  		},
-  	},
+    "nvim-treesitter/nvim-treesitter",
+    opts = {
+      ensure_installed = {
+        "vim",
+        "lua",
+        "vimdoc",
+        "html",
+        "css",
+      },
+    },
   },
 
   {
@@ -40,11 +46,11 @@ return {
     cmd = "Copilot",
     event = "InsertEnter",
     config = function()
-      local nodenv_node = vim.fn.expand("$HOME") .. "/.nodenv/versions/22.11.0/bin/node"
+      local nodenv_node = vim.fn.expand "$HOME" .. "/.nodenv/versions/22.11.0/bin/node"
       local asdf_node = "/opt/asdf-data/installs/nodejs/22.11.0/bin/node"
       local node_command = vim.fn.filereadable(nodenv_node) == 1 and nodenv_node or asdf_node
 
-      require("copilot").setup({
+      require("copilot").setup {
         panel = {
           auto_refresh = true,
         },
@@ -54,8 +60,8 @@ return {
         filetypes = {
           gitcommit = true,
         },
-        copilot_node_command = node_command
-      })
+        copilot_node_command = node_command,
+      }
     end,
     lazy = true,
   },
@@ -67,21 +73,21 @@ return {
       debug = true, -- Enable debugging
       -- See Configuration section for rest
     },
-    cmd = { "CopilotChat", "CopilotChatExplain" },
+    cmd = { "CopilotChat", "CopilotChatExplain", "CopilotChatModels" },
     config = function()
-      require("CopilotChat").setup({
+      require("CopilotChat").setup {
         show_help = false,
         prompts = {
           Explain = {
-              prompt = "/COPILOT_EXPLAIN 選択範囲のコード処理を日本語で解説してください"
+            prompt = "/COPILOT_EXPLAIN 選択範囲のコード処理を日本語で解説してください",
           },
         },
         mappings = {
           complete = {
-            insert ='',
-          }
-        }
-      })
+            insert = "",
+          },
+        },
+      }
     end,
   },
 
@@ -96,7 +102,7 @@ return {
       },
     },
 
-    require("telescope").setup({
+    require("telescope").setup {
       theme = "decay",
       defaults = {
         layout_config = {
@@ -106,11 +112,11 @@ return {
         },
         border = {},
       },
-    })
+    },
   },
 
   {
     "slim-template/vim-slim",
-    ft = "slim"
+    ft = "slim",
   },
 }
