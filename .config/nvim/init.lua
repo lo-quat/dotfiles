@@ -39,23 +39,23 @@ vim.schedule(function()
 end)
 
 _G.open_pr_with_current_line_git_log = function()
-  local line_number = vim.fn.line('.')
-  local file_path = vim.fn.expand('%')
-  local handle = io.popen('git log -L ' .. line_number .. ',' .. line_number .. ':' .. file_path)
+  local line_number = vim.fn.line "."
+  local file_path = vim.fn.expand "%"
+  local handle = io.popen("git log -L " .. line_number .. "," .. line_number .. ":" .. file_path)
   if not handle then
-    print("Failed to execute git log command.")
+    print "Failed to execute git log command."
     return
   end
-  local result = handle:read("*a")
+  local result = handle:read "*a"
   handle:close()
-  local commit_hash = result:match("commit (%w+)")
+  local commit_hash = result:match "commit (%w+)"
   if commit_hash then
-    vim.fn.jobstart('git openpr ' .. commit_hash, {detach = true})
+    vim.fn.jobstart("git openpr " .. commit_hash, { detach = true })
   else
-    print("No commit hash found for the current line.")
+    print "No commit hash found for the current line."
   end
 end
 
-vim.cmd('command! Openpr lua open_pr_with_current_line_git_log()')
+vim.cmd "command! Openpr lua open_pr_with_current_line_git_log()"
 
-vim.cmd('language en_US.UTF-8')
+vim.cmd "language en_US.UTF-8"
