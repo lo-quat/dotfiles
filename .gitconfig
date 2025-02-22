@@ -7,3 +7,4 @@
 	email = tokuma.yamaguchi@gmail.com
 [alias]
 	openpr = "!f() { gh browse -- `git log --merges --oneline --reverse --ancestry-path $1...develop | grep 'Merge pull request #' | head -n 1 | cut -f5 -d' ' | sed -e 's%#%%'`; }; f"
+  ae = "!sh -c 'selected_file=$(git status --short | awk \"{print \\$2}\" | fzf); [ -n \"$selected_file\" ] && git add -e \"$selected_file\"'"
