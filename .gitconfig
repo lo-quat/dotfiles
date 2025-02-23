@@ -7,6 +7,7 @@
 	email = tokuma.yamaguchi@gmail.com
 [alias]
 	openpr = "!f() { gh browse -- `git log --merges --oneline --reverse --ancestry-path $1...develop | grep 'Merge pull request #' | head -n 1 | cut -f5 -d' ' | sed -e 's%#%%'`; }; f"
-  ae = "!sh -c 'selected_file=$(git status --short | awk \"{print \\$2}\" | fzf); [ -n \"$selected_file\" ] && git add -e \"$selected_file\"'"
   cb = "!$SHELL -c 'query_and_selection=$(git branch --all --format \"%(refname:short)\" | sort -u | fzf --prompt=\"Select or create a branch: \" --print-query); branch=$(echo \"$query_and_selection\" | tail -n1); if [ -z \"$branch\" ]; then echo \"No branch selected.\"; exit 0; fi; if ! git rev-parse --verify \"$branch\" >/dev/null 2>&1; then git switch -c \"$branch\"; else git switch \"$branch\"; fi'"
   discard = "!git reset --hard && git clean -fd"
+  addi = "!git status --short | awk '{print $2}' | fzf --multi --preview 'git diff --color {}' --preview-window=right:60% --height=40% --border --ansi --bind 'space:toggle' --marker='* ' | xargs git add"
+  addie = "!git status --short | awk '{print $2}' | fzf --multi --preview 'git diff --color {}' --preview-window=right:60% --height=40% --border --ansi --bind 'space:toggle' --marker='* ' | xargs -I{} git add -e {}"
