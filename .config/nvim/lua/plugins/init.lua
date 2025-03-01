@@ -60,6 +60,13 @@ return {
         filetypes = {
           gitcommit = true,
         },
+        server_opts_overrides = {
+          trace = "verbose",
+          cmd = {
+            vim.fn.expand "~/.local/share/nvim/mason/bin/copilot-language-server",
+            "--stdio",
+          },
+        },
         copilot_node_command = node_command,
       }
     end,
