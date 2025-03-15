@@ -56,6 +56,12 @@ return {
         },
         suggestion = {
           auto_trigger = true,
+          keymap = {
+            accept = "<C-f>",
+            next = "<C-l>",
+            prev = "<C-h>",
+            dismiss = "<C-e>",
+          },
         },
         filetypes = {
           gitcommit = true,
