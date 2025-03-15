@@ -127,4 +127,12 @@ return {
     "slim-template/vim-slim",
     ft = "slim",
   },
+
+  {
+    "windwp/nvim-ts-autotag",
+    event = { "BufNewFile", "BufReadPre" },
+    config = function()
+      require("nvim-ts-autotag").setup()
+    end,
+  },
 }
