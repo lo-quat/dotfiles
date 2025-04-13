@@ -4,8 +4,8 @@ local options = {
     typescript = { "prettierd" },
     typescriptreact = { "prettierd" },
     ruby = { "ruby_lsp" },
-    css = { "prettier" },
-    html = { "prettier" },
+    css = { "prettierd" },
+    html = { "prettierd" },
   },
 
   format_on_save = {
