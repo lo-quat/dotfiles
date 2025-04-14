@@ -141,4 +141,14 @@ return {
       require("nvim-ts-autotag").setup()
     end,
   },
+
+  {
+    "nvim-treesitter/nvim-treesitter-context",
+    lazy = false,
+    config = function()
+      require("treesitter-context").setup {
+        multiline_threshold = 5,
+      }
+    end,
+  },
 }
