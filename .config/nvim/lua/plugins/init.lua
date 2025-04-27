@@ -46,8 +46,8 @@ return {
     cmd = "Copilot",
     event = "InsertEnter",
     config = function()
-      local nodenv_node = vim.fn.expand "$HOME" .. "/.nodenv/versions/22.11.0/bin/node"
-      local asdf_node = "/opt/asdf-data/installs/nodejs/22.11.0/bin/node"
+      local nodenv_node = vim.fn.expand "$HOME" .. "/.nodenv/versions/22.15.0/bin/node"
+      local asdf_node = "/opt/asdf-data/installs/nodejs/22.15.0/bin/node"
       local node_command = vim.fn.filereadable(nodenv_node) == 1 and nodenv_node or asdf_node
 
       require("copilot").setup {
