@@ -90,7 +90,7 @@ return {
     config = function()
       require("CopilotChat").setup {
         model = "claude-3.7-sonnet",
-        show_help = false,
+        show_help = true,
         prompts = {
           Explain = {
             prompt = "/COPILOT_EXPLAIN 選択範囲のコード処理を日本語で解説してください",
