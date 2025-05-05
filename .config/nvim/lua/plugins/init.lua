@@ -57,9 +57,9 @@ return {
         suggestion = {
           auto_trigger = true,
           keymap = {
-            accept = "<C-f>",
-            next = "<C-l>",
-            prev = "<C-h>",
+            accept = "<C-l>",
+            next = "<C-n>",
+            prev = "<C-p>",
             dismiss = "<C-e>",
           },
         },
