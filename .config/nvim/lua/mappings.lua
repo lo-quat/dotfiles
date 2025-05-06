@@ -45,3 +45,7 @@ map("n", "<leader>rs", function()
     end,
   }
 end, { desc = "Rspec current line" })
+
+map("n", "gl", function()
+  vim.diagnostic.open_float { border = "rounded" }
+end, { desc = "LSP floating diagnostics" })
