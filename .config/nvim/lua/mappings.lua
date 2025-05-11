@@ -28,13 +28,14 @@ map("n", "<C-p>", ":lua require('nvchad.tabufline').move_buf(1)<CR>", { desc = "
 map("n", "<C-q>", ":lua require('nvchad.tabufline').move_buf(-1)<CR>", { desc = "Move buffer left" })
 unmap("i", "<C-h>")
 map("n", "<leader>rs", function()
+  local file = vim.fn.expand "%"
+  local line = vim.fn.line "."
+  print(file .. ":" .. line)
   require("nvchad.term").runner {
     id = "rspec",
     pos = "vsp",
     size = 0.5,
     cmd = function()
-      local file = vim.fn.expand "%"
-      local line = vim.fn.line "."
       local cmd_prefix
       if vim.fn.filereadable(vim.fn.getcwd() .. "/dip.yml") == 1 then
         cmd_prefix = "dip rspec "
