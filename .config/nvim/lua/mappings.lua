@@ -38,7 +38,7 @@ map("n", "<leader>rs", function()
     size = 0.5,
     cmd = function()
       local cmd_prefix
-      if vim.fn.filereadable(vim.fn.getcwd() .. "/dip.yml") == 1 then
+      if vim.env.USE_DIP then
         cmd_prefix = "dip rspec "
       else
         cmd_prefix = "bundle exec rspec "
