@@ -12,3 +12,5 @@
   addi = "!git status --short | awk '{print $2}' | fzf --multi --preview 'git diff --color {}' --preview-window=right:60% --height=40% --border --ansi --bind 'space:toggle' --marker='* ' | xargs git add"
   addie = "!git status --short | awk '{print $2}' | fzf --multi --preview 'git diff --color {}' --preview-window=right:60% --height=40% --border --ansi --bind 'space:toggle' --marker='* ' | xargs -I{} git add -e {}"
   edit-conflicts = "!git diff --name-only --diff-filter=U | xargs nvim -p"
+[push]
+	autoSetupRemote = true
