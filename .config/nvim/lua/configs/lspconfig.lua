@@ -16,7 +16,6 @@ for _, lsp in ipairs(servers) do
 end
 
 lspconfig.ruby_lsp.setup {
-  cmd = { "bundle", "exec", "ruby-lsp" },
   on_attach = on_attach,
   on_init = on_init,
   capabilities = capabilities,
