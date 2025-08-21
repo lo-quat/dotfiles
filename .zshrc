@@ -2,4 +2,5 @@ eval "$(/opt/homebrew/bin/brew shellenv)"
 eval "$(nodenv init -)"
 source <(fzf --zsh)
 export editor='nvim'
-[[ ! -f "${(%):-%x:h}/p10k.zsh" ]] || source "${(%):-%x:h}/p10k.zsh"
+source /opt/homebrew/share/powerlevel10k/powerlevel10k.zsh-theme
+[[ ! -f "$HOME/dotfiles/.p10k.zsh" ]] || source "$HOME/dotfiles/.p10k.zsh"
