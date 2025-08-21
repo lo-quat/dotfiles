@@ -1,0 +1,39 @@
+#!/bin/zsh
+
+SOURCE_LINE="source ~/dotfiles/.zshrc"
+ZSHRC_PATH="$HOME/.zshrc"
+
+if [[ -f "$ZSHRC_PATH" ]] && grep -Fxq "$SOURCE_LINE" "$ZSHRC_PATH"; then
+    echo "✓ $ZSHRC_PATH already sources dotfiles/.zshrc"
+else
+    echo "$SOURCE_LINE" >> "$ZSHRC_PATH"
+    echo "✓ Added source line to $ZSHRC_PATH"
+fi
+
+mkdir -p ~/.config
+
+if [ ! -L ~/.config/tmux ]; then
+    ln -s ~/dotfiles/.config/tmux ~/.config/tmux
+    echo "✓ Created tmux symlink"
+fi
+
+if [ ! -L ~/.config/nvim ]; then
+    ln -s ~/dotfiles/.config/nvim ~/.config/nvim
+    echo "✓ Created nvim symlink"
+fi
+
+if [ ! -L ~/.gitconfig ]; then
+    ln -s ~/dotfiles/.gitconfig ~/.gitconfig
+    echo "✓ Created gitconfig symlink"
+fi
+
+echo "✓ Symlinks created for tmux, nvim, and gitconfig"
+echo ""
+echo ""
+echo "  ███████╗███████╗████████╗██╗   ██╗██████╗     ██████╗  ██████╗ ███╗   ██╗███████╗"
+echo "  ██╔════╝██╔════╝╚══██╔══╝██║   ██║██╔══██╗    ██╔══██╗██╔═══██╗████╗  ██║██╔════╝"
+echo "  ███████╗█████╗     ██║   ██║   ██║██████╔╝    ██║  ██║██║   ██║██╔██╗ ██║█████╗  "
+echo "  ╚════██║██╔══╝     ██║   ██║   ██║██╔═══╝     ██║  ██║██║   ██║██║╚██╗██║██╔══╝  "
+echo "  ███████║███████╗   ██║   ╚██████╔╝██║         ██████╔╝╚██████╔╝██║ ╚████║███████╗"
+echo "  ╚══════╝╚══════╝   ╚═╝    ╚═════╝ ╚═╝         ╚═════╝  ╚═════╝ ╚═╝  ╚═══╝╚══════╝"
+echo ""
