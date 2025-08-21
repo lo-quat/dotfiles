@@ -27,7 +27,36 @@ if [ ! -L ~/.gitconfig ]; then
     echo "✓ Created gitconfig symlink"
 fi
 
-echo "✓ Symlinks created for tmux, nvim, and gitconfig"
+# Install Homebrew if not already installed
+if ! command -v brew &> /dev/null; then
+    /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+    eval "$(/opt/homebrew/bin/brew shellenv)"
+else
+    echo "✓ Homebrew already installed"
+fi
+
+# Install packages via Homebrew
+PACKAGES=(neovim iterm2 tmux font-jetbrains-mono-nerd-font fzf nodenv)
+
+for package in "${PACKAGES[@]}"; do
+    if brew list "$package" &> /dev/null || brew list --cask "$package" &> /dev/null; then
+        echo "✓ $package already installed"
+    else
+        brew install "$package"
+    fi
+done
+
+# Install Node.js 22.15.0 via nodenv if not already installed
+if command -v nodenv &> /dev/null; then
+    if nodenv versions | grep -q "22.15.0"; then
+        echo "✓ Node.js 22.15.0 already installed"
+    else
+        nodenv install 22.15.0
+    fi
+else
+    echo "⚠ nodenv not available, skipping Node.js installation"
+fi
+
 echo ""
 echo ""
 echo "  ███████╗███████╗████████╗██╗   ██╗██████╗     ██████╗  ██████╗ ███╗   ██╗███████╗"
