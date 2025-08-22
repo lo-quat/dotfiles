@@ -36,7 +36,7 @@ else
 fi
 
 # Install packages via Homebrew
-PACKAGES=(neovim iterm2 tmux font-jetbrains-mono-nerd-font fzf nodenv)
+PACKAGES=(neovim iterm2 tmux font-jetbrains-mono-nerd-font fzf nodenv powerlevel10k)
 
 for package in "${PACKAGES[@]}"; do
     if brew list "$package" &> /dev/null || brew list --cask "$package" &> /dev/null; then
@@ -66,3 +66,4 @@ echo "  ╚════██║██╔══╝     ██║   ██║   �
 echo "  ███████║███████╗   ██║   ╚██████╔╝██║         ██████╔╝╚██████╔╝██║ ╚████║███████╗"
 echo "  ╚══════╝╚══════╝   ╚═╝    ╚═════╝ ╚═╝         ╚═════╝  ╚═════╝ ╚═╝  ╚═══╝╚══════╝"
 echo ""
+echo "  Please restart your terminal or run 'source ~/.zshrc'"
