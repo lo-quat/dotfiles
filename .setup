@@ -36,7 +36,7 @@ else
 fi
 
 # Install packages via Homebrew
-PACKAGES=(neovim iterm2 tmux font-jetbrains-mono-nerd-font fzf nodenv powerlevel10k)
+PACKAGES=(neovim iterm2 tmux font-jetbrains-mono-nerd-font fzf nodenv powerlevel10k ripgrep)
 
 for package in "${PACKAGES[@]}"; do
     if brew list "$package" &> /dev/null || brew list --cask "$package" &> /dev/null; then
