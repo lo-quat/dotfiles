@@ -89,7 +89,7 @@ return {
     cmd = { "CopilotChat", "CopilotChatExplain", "CopilotChatModels" },
     config = function()
       require("CopilotChat").setup {
-        model = "claude-sonnet-4",
+        model = "claude-sonnet-4.5",
         show_help = true,
         prompts = {
           Explain = {
