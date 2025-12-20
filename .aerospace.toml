@@ -1,0 +1,47 @@
+# --- 基本設定 ---
+start-at-login = true
+
+# 起動時にウィンドウの境界線（Jankyborders）を実行
+after-startup-command = [
+    'exec-and-forget borders style=round width=6.0 hidpi=on active_color=0xff00FFFF inactive_color=0xff414550'
+]
+
+# 余白の設定
+[gaps]
+inner.horizontal = 15
+inner.vertical   = 15
+outer.left       = 15
+outer.bottom     = 15
+outer.top        = 10
+outer.right      = 15
+
+[mode.main.binding]
+# --- フォーカス移動 (Vim-style) ---
+alt-h = 'focus left'
+alt-j = 'focus down'
+alt-k = 'focus up'
+alt-l = 'focus right'
+
+# --- ウィンドウの入れ替え (Move / Swap) ---
+alt-shift-h = 'move left'
+alt-shift-j = 'move down'
+alt-shift-k = 'move up'
+alt-shift-l = 'move right'
+
+# --- レイアウト操作 ---
+alt-comma = 'layout tiles horizontal vertical'
+
+# 右側メインを 2/3 (66%) に調整
+alt-r = 'resize smart 66'
+
+# --- モード切り替え ---
+alt-shift-r = 'mode resize'
+
+# --- リサイズモードの定義 ---
+[mode.resize.binding]
+h = 'resize width -50'
+j = 'resize height +50'
+k = 'resize height -50'
+l = 'resize width +50'
+enter = 'mode main'
+esc = 'mode main'
