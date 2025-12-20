@@ -10,10 +10,10 @@ after-startup-command = [
 [gaps]
 inner.horizontal = 15
 inner.vertical   = 15
-outer.left       = 15
-outer.bottom     = 15
+outer.left       = 20
+outer.bottom     = 20
 outer.top        = 10
-outer.right      = 15
+outer.right      = 20
 
 [mode.main.binding]
 # --- フォーカス移動 (Vim-style) ---

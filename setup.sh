@@ -27,6 +27,11 @@ if [ ! -L ~/.gitconfig ]; then
     echo "✓ Created gitconfig symlink"
 fi
 
+if [ ! -L ~/.aerospace.toml ]; then
+    ln -s ~/dotfiles/.aerospace.toml ~/.aerospace.toml
+    echo "✓ Created aerospace symlink"
+fi
+
 # Install Homebrew if not already installed
 if ! command -v brew &> /dev/null; then
     /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
@@ -36,7 +41,7 @@ else
 fi
 
 # Install packages via Homebrew
-PACKAGES=(neovim iterm2 tmux font-jetbrains-mono-nerd-font fzf nodenv powerlevel10k ripgrep)
+PACKAGES=(neovim wezterm tmux font-jetbrains-mono-nerd-font fzf nodenv powerlevel10k ripgrep nikitabobko/tap/aerospace felixkratz/formulae/borders)
 
 for package in "${PACKAGES[@]}"; do
     if brew list "$package" &> /dev/null || brew list --cask "$package" &> /dev/null; then
