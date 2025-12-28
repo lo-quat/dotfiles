@@ -12,11 +12,6 @@ fi
 
 mkdir -p ~/.config
 
-if [ ! -L ~/.config/tmux ]; then
-    ln -s ~/dotfiles/.config/tmux ~/.config/tmux
-    echo "✓ Created tmux symlink"
-fi
-
 if [ ! -L ~/.config/nvim ]; then
     ln -s ~/dotfiles/.config/nvim ~/.config/nvim
     echo "✓ Created nvim symlink"
@@ -41,7 +36,7 @@ else
 fi
 
 # Install packages via Homebrew
-PACKAGES=(neovim wezterm tmux font-jetbrains-mono-nerd-font fzf nodenv powerlevel10k ripgrep)
+PACKAGES=(neovim wezterm font-jetbrains-mono-nerd-font fzf nodenv powerlevel10k ripgrep)
 
 for package in "${PACKAGES[@]}"; do
     if brew list "$package" &> /dev/null || brew list --cask "$package" &> /dev/null; then
