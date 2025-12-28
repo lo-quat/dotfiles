@@ -6,6 +6,8 @@ function M.setup(wezterm, config)
 	config.leader = { key = "t", mods = "CTRL", timeout_milliseconds = 1000 }
 
 	config.keys = {
+		{ key = "h", mods = "LEADER", action = act.ActivatePaneDirection("Left") },
+		{ key = "l", mods = "LEADER", action = act.ActivatePaneDirection("Right") },
 		{
 			key = "w",
 			mods = "LEADER",
@@ -17,8 +19,7 @@ function M.setup(wezterm, config)
 			action = wezterm.action.SplitHorizontal({ domain = "CurrentPaneDomain" }),
 		},
 		{ key = "c", mods = "LEADER", action = act.SpawnTab("CurrentPaneDomain") },
-
-		{ key = "x", mods = "LEADER", action = act.CloseCurrentTab({ confirm = true }) },
+		{ key = "x", mods = "LEADER", action = act.CloseCurrentPane({ confirm = false }) },
 
 		{ key = "n", mods = "LEADER", action = act.ActivateTabRelative(1) },
 		{ key = "p", mods = "LEADER", action = act.ActivateTabRelative(-1) },
@@ -31,6 +32,27 @@ function M.setup(wezterm, config)
 		{ key = "7", mods = "LEADER", action = act.ActivateTab(6) },
 		{ key = "8", mods = "LEADER", action = act.ActivateTab(7) },
 		{ key = "9", mods = "LEADER", action = act.ActivateTab(8) },
+		{
+			key = "a",
+			mods = "LEADER",
+			action = act.PromptInputLine({
+				description = wezterm.format({
+					{ Attribute = { Intensity = "Bold" } },
+					{ Foreground = { AnsiColor = "Fuchsia" } },
+					{ Text = "Enter name for new workspace" },
+				}),
+				action = wezterm.action_callback(function(window, pane, line)
+					if line then
+						window:perform_action(
+							act.SwitchToWorkspace({
+								name = line,
+							}),
+							pane
+						)
+					end
+				end),
+			}),
+		},
 	}
 end
 
