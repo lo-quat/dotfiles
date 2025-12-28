@@ -32,6 +32,11 @@ if [ ! -L ~/.aerospace.toml ]; then
     echo "✓ Created aerospace symlink"
 fi
 
+if [ ! -L ~/.config/wezterm ]; then
+    ln -s ~/dotfiles/.config/wezterm ~/.config/wezterm
+    echo "✓ Created wezterm symlink"
+fi
+
 # Install Homebrew if not already installed
 if ! command -v brew &> /dev/null; then
     /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
