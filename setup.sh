@@ -27,11 +27,6 @@ if [ ! -L ~/.gitconfig ]; then
     echo "✓ Created gitconfig symlink"
 fi
 
-if [ ! -L ~/.aerospace.toml ]; then
-    ln -s ~/dotfiles/.aerospace.toml ~/.aerospace.toml
-    echo "✓ Created aerospace symlink"
-fi
-
 if [ ! -L ~/.config/wezterm ]; then
     ln -s ~/dotfiles/.config/wezterm ~/.config/wezterm
     echo "✓ Created wezterm symlink"
@@ -46,7 +41,7 @@ else
 fi
 
 # Install packages via Homebrew
-PACKAGES=(neovim wezterm tmux font-jetbrains-mono-nerd-font fzf nodenv powerlevel10k ripgrep nikitabobko/tap/aerospace felixkratz/formulae/borders)
+PACKAGES=(neovim wezterm tmux font-jetbrains-mono-nerd-font fzf nodenv powerlevel10k ripgrep)
 
 for package in "${PACKAGES[@]}"; do
     if brew list "$package" &> /dev/null || brew list --cask "$package" &> /dev/null; then
