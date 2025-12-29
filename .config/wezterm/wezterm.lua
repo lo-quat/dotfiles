@@ -9,7 +9,7 @@ config.tab_max_width = 24
 
 keymaps.setup(wezterm, config)
 
-local BG_COLOR = "#171b20"
+local BG_COLOR = "rgba(0,0,0,0.0)"
 local ACTIVE_BG = "#73daca"
 local ACTIVE_FG = "#000000"
 local INACTIVE_FG = "#b4b0d4"
@@ -51,8 +51,8 @@ end)
 
 config.colors = {
 	tab_bar = {
-		background = BG_COLOR,
-		inactive_tab = { bg_color = BG_COLOR, fg_color = INACTIVE_FG },
+		background = "rgba(0,0,0,0.0)",
+		inactive_tab = { bg_color = "rgba(0,0,0,0.0)", fg_color = INACTIVE_FG },
 	},
 	foreground = "#a1a6b2",
 	background = "#171b20",
