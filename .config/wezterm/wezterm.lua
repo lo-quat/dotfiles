@@ -18,6 +18,11 @@ wezterm.on("format-tab-title", function(tab)
 	local title = tab.active_pane.title
 	local index = tab.tab_index + 1
 
+	local max_title_length = 14
+	if #title > max_title_length then
+		title = wezterm.truncate_right(title, max_title_length)
+	end
+
 	local items = {}
 
 	if tab.is_active then
@@ -30,17 +35,14 @@ wezterm.on("format-tab-title", function(tab)
 			table.insert(items, { Text = "\u{e0b0}" })
 		end
 
-		-- メイン部分（数字とタイトル）
 		table.insert(items, { Background = { Color = ACTIVE_BG } })
 		table.insert(items, { Foreground = { Color = ACTIVE_FG } })
 		table.insert(items, { Text = " " .. index .. " \u{e0b1} " .. title .. " " })
 
-		-- 右側の境界矢印
 		table.insert(items, { Background = { Color = BG_COLOR } })
 		table.insert(items, { Foreground = { Color = ACTIVE_BG } })
 		table.insert(items, { Text = "\u{e0b0}" })
 	else
-		-- 非アクティブ時の表示
 		table.insert(items, { Background = { Color = BG_COLOR } })
 		table.insert(items, { Foreground = { Color = INACTIVE_FG } })
 		table.insert(items, { Text = "  " .. index .. " \u{e0b1} " .. title .. "  " })
