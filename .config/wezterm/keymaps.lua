@@ -20,6 +20,7 @@ function M.setup(wezterm, config)
 		},
 		{ key = "c", mods = "LEADER", action = act.SpawnTab("CurrentPaneDomain") },
 		{ key = "x", mods = "LEADER", action = act.CloseCurrentPane({ confirm = false }) },
+		{ key = "[", mods = "LEADER", action = act.ActivateCopyMode },
 
 		{ key = "n", mods = "LEADER", action = act.ActivateTabRelative(1) },
 		{ key = "p", mods = "LEADER", action = act.ActivateTabRelative(-1) },
