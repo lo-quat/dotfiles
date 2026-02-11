@@ -1,4 +1,5 @@
 local M = {}
+local workspace_switcher = require("workspace_switcher")
 
 function M.setup(wezterm, config)
 	local act = wezterm.action
@@ -11,7 +12,7 @@ function M.setup(wezterm, config)
 		{
 			key = "w",
 			mods = "LEADER",
-			action = wezterm.action.ShowLauncherArgs({ flags = "WORKSPACES" }),
+			action = workspace_switcher.action(wezterm),
 		},
 		{
 			key = "v",
