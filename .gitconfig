@@ -10,6 +10,5 @@
   cb = "!$SHELL -c 'query_and_selection=$(git branch --all --format \"%(refname:short)\" | sort -u | fzf --prompt=\"Select or create a branch: \" --print-query); branch=$(echo \"$query_and_selection\" | tail -n1); if [ -z \"$branch\" ]; then echo \"No branch selected.\"; exit 0; fi; if ! git rev-parse --verify \"$branch\" >/dev/null 2>&1; then git switch -c \"$branch\"; else git switch \"$branch\"; fi'"
   discard = "!git reset --hard && git clean -fd"
   edit-conflicts = "!git diff --name-only --diff-filter=U | xargs nvim -p"
-  aicommit = "!f() { COMMITMSG=$(claude -p 'Generate ONLY a one-line Git commit message in English, using imperative mood, summarizing what was changed and why, based strictly on the contents of `git diff --cached`. Do not add explanation or a body. Output only the commit summary line.'); git commit -m \"$COMMITMSG\" -e; }; f"
 [push]
 	autoSetupRemote = true
