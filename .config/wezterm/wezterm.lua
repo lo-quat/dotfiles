@@ -2,6 +2,8 @@ local wezterm = require("wezterm")
 local keymaps = require("keymaps")
 local config = {}
 
+config.use_ime = true
+config.macos_forward_to_ime_modifier_mask = "SHIFT|CTRL"
 config.use_fancy_tab_bar = false
 config.tab_bar_at_bottom = true
 config.show_new_tab_button_in_tab_bar = false
