@@ -7,6 +7,7 @@ if ! command -v nodenv &> /dev/null || [[ -z "$NODENV_ROOT" ]]; then
 fi
 
 source <(fzf --zsh)
+export FZF_DEFAULT_OPTS='--height=30%'
 export editor='nvim'
 
 autoload -Uz vcs_info
