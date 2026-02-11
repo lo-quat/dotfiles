@@ -1,6 +1,17 @@
 return {
   defaults = { lazy = true },
-  install = { colorscheme = { "nvchad" } },
+  install = {
+    colorscheme = { "nvchad" },
+    missing = false,
+  },
+
+  git = {
+    timeout = 100,
+  },
+
+  checker = {
+    enabled = false,
+  },
 
   ui = {
     icons = {
