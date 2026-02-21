@@ -66,13 +66,6 @@ return {
         filetypes = {
           gitcommit = true,
         },
-        server_opts_overrides = {
-          trace = "verbose",
-          cmd = {
-            vim.fn.expand "~/.local/share/nvim/mason/bin/copilot-language-server",
-            "--stdio",
-          },
-        },
         copilot_node_command = node_command,
       }
     end,
@@ -82,7 +75,7 @@ return {
   {
     "CopilotC-Nvim/CopilotChat.nvim",
     branch = "main",
-    cmd = { "CopilotChat", "CopilotChatExplain", "CopilotChatModels" },
+    cmd = { "CopilotChat", "CopilotChatModels" },
     ft = { "gitcommit" },
     config = function()
       require "configs.copilotchat"
