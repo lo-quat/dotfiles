@@ -59,3 +59,9 @@ end
 vim.cmd "command! Openpr lua open_pr_with_current_line_git_log()"
 
 vim.cmd "language en_US.UTF-8"
+
+vim.api.nvim_create_autocmd("InsertLeave", {
+  callback = function()
+    vim.fn.jobstart({ "im-select", "com.apple.keylayout.ABC" })
+  end,
+})
