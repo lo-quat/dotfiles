@@ -41,3 +41,12 @@ setopt PROMPT_SUBST
 PROMPT='%F{4}%~%f${vcs_info_msg_0_} %(?.%F{5}.%F{1})❯%f '
 
 alias fnvim='file=$(fzf) && [ -n "$file" ] && nvim "$file"'
+
+switch-worktree() {
+  local dir=$(git worktree list | grep "$1" | awk '{print $1}')
+  if [ -n "$dir" ]; then
+    cd "$dir"
+  else
+    echo "Worktree '$1' not found"
+  fi
+}
