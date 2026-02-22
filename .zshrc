@@ -8,7 +8,8 @@ fi
 
 source <(fzf --zsh)
 export FZF_DEFAULT_OPTS='--height=30%'
-export editor='nvim'
+export EDITOR='nvim'
+export VISUAL='nvim'
 
 autoload -Uz vcs_info
 
