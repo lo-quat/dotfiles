@@ -35,8 +35,15 @@ else
     echo "✓ Homebrew already installed"
 fi
 
+# Add third-party taps
+if ! brew tap | grep -q "daipeihust/tap"; then
+    brew tap daipeihust/tap
+else
+    echo "✓ daipeihust/tap already tapped"
+fi
+
 # Install packages via Homebrew
-PACKAGES=(neovim wezterm font-jetbrains-mono-nerd-font fzf nodenv ripgrep)
+PACKAGES=(neovim wezterm font-jetbrains-mono-nerd-font fzf nodenv ripgrep im-select)
 
 for package in "${PACKAGES[@]}"; do
     if brew list "$package" &> /dev/null || brew list --cask "$package" &> /dev/null; then
