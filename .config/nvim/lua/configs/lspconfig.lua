@@ -7,18 +7,6 @@ local servers = {
   "eslint",
 }
 
-vim.lsp.config("ruby_lsp", {
-  init_options = {
-    formatter = "rubocop",
-    linters = { "rubocop" },
-    addonSettings = {
-      ["Ruby LSP Rails"] = {
-        enablePendingMigrationsPrompt = false,
-      },
-    },
-  },
-})
-
 -- Start ruby_lsp only when bundle is installed
 vim.api.nvim_create_autocmd("FileType", {
   pattern = "ruby",
@@ -33,11 +21,20 @@ vim.api.nvim_create_autocmd("FileType", {
           if not vim.api.nvim_buf_is_valid(ev.buf) then
             return
           end
-          vim.lsp.start({
+          vim.lsp.start {
             name = "ruby_lsp",
             cmd = { "ruby-lsp" },
             root_dir = root,
-          })
+            init_options = {
+              formatter = "rubocop",
+              linters = { "rubocop" },
+              addonSettings = {
+                ["Ruby LSP Rails"] = {
+                  enablePendingMigrationsPrompt = false,
+                },
+              },
+            },
+          }
         end)
       end
     end)
