@@ -1,5 +1,36 @@
 local M = {}
 
+local SHELL_NAMES = { zsh = true, bash = true, fish = true, sh = true }
+
+local function get_tab_title(pane)
+	local process = pane:get_foreground_process_name() or ""
+	local process_name = process:match("([^/]+)$") or ""
+
+	if process:find("claude") then
+		return pane:get_title()
+	end
+
+	if SHELL_NAMES[process_name] then
+		local cwd_url = pane:get_current_working_dir()
+		if cwd_url then
+			local path = cwd_url.file_path or ""
+			local dir = path:match("([^/]+)/?$") or path
+			return dir
+		end
+	end
+
+	if process_name ~= "" then
+		return process_name
+	end
+
+	local title = pane:get_title() or ""
+	if title ~= "" then
+		return title
+	end
+
+	return "?"
+end
+
 function M.action(wezterm)
 	local act = wezterm.action
 
@@ -33,7 +64,7 @@ function M.action(wezterm)
 			local windows = workspace_windows[ws_name] or {}
 			for _, mux_win in ipairs(windows) do
 				for tab_i, tab in ipairs(mux_win:tabs()) do
-					local title = tab:active_pane():get_title()
+					local title = get_tab_title(tab:active_pane())
 					idx = tostring(#choices + 1)
 					table.insert(choices, {
 						id = idx,
