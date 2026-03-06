@@ -22,6 +22,10 @@ local function get_tab_title(pane)
 	local process = pane.foreground_process_name or ""
 	local process_name = process:match("([^/]+)$") or ""
 
+	if process:find("claude") then
+		return "claude code"
+	end
+
 	if SHELL_NAMES[process_name] then
 		local cwd_url = pane.current_working_dir
 		if cwd_url then
