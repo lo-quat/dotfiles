@@ -39,6 +39,7 @@ zstyle ':vcs_info:git+set-message:*' hooks git-status
 precmd() {
   vcs_info
   printf '\e]7;file://%s%s\e\\' "$HOST" "$PWD"
+  printf '\e]0;%s\e\\' "${PWD##*/}"
 }
 
 setopt PROMPT_SUBST

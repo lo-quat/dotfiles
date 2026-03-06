@@ -31,7 +31,16 @@ local function get_tab_title(pane)
 		end
 	end
 
-	return pane.title
+	if process_name ~= "" then
+		return process_name
+	end
+
+	local title = pane.title or ""
+	if title ~= "" then
+		return title
+	end
+
+	return "?"
 end
 
 wezterm.on("format-tab-title", function(tab)
