@@ -16,8 +16,26 @@ local ACTIVE_BG = "#73daca"
 local ACTIVE_FG = "#000000"
 local INACTIVE_FG = "#b4b0d4"
 
+local SHELL_NAMES = { zsh = true, bash = true, fish = true, sh = true }
+
+local function get_tab_title(pane)
+	local process = pane.foreground_process_name or ""
+	local process_name = process:match("([^/]+)$") or ""
+
+	if SHELL_NAMES[process_name] then
+		local cwd_url = pane.current_working_dir
+		if cwd_url then
+			local path = cwd_url.file_path or ""
+			local dir = path:match("([^/]+)/?$") or path
+			return dir
+		end
+	end
+
+	return pane.title
+end
+
 wezterm.on("format-tab-title", function(tab)
-	local title = tab.active_pane.title
+	local title = get_tab_title(tab.active_pane)
 	local index = tab.tab_index + 1
 
 	local max_title_length = 14

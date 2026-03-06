@@ -36,7 +36,10 @@ zstyle ':vcs_info:git:*' actionformats ' %F{242}%b|%a%u%m%f'
 zstyle ':vcs_info:git:*' check-for-changes false
 zstyle ':vcs_info:git+set-message:*' hooks git-status
 
-precmd() { vcs_info }
+precmd() {
+  vcs_info
+  printf '\e]7;file://%s%s\e\\' "$HOST" "$PWD"
+}
 
 setopt PROMPT_SUBST
 PROMPT='%F{4}%~%f${vcs_info_msg_0_} %(?.%F{5}.%F{1})❯%f '
