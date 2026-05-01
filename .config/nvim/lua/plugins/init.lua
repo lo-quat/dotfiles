@@ -42,47 +42,6 @@ return {
   },
 
   {
-    "zbirenbaum/copilot.lua",
-    cmd = "Copilot",
-    event = "InsertEnter",
-    config = function()
-      local nodenv_node = vim.fn.expand "$HOME" .. "/.nodenv/versions/22.15.0/bin/node"
-      local asdf_node = "/opt/asdf-data/installs/nodejs/22.15.0/bin/node"
-      local node_command = vim.fn.filereadable(nodenv_node) == 1 and nodenv_node or asdf_node
-
-      require("copilot").setup {
-        panel = {
-          auto_refresh = true,
-        },
-        suggestion = {
-          auto_trigger = true,
-          keymap = {
-            accept = "<C-l>",
-            next = "<C-n>",
-            prev = "<C-p>",
-            dismiss = "<C-e>",
-          },
-        },
-        filetypes = {
-          gitcommit = true,
-        },
-        copilot_node_command = node_command,
-      }
-    end,
-    lazy = true,
-  },
-
-  {
-    "CopilotC-Nvim/CopilotChat.nvim",
-    branch = "main",
-    cmd = { "CopilotChat", "CopilotChatModels" },
-    ft = { "gitcommit" },
-    config = function()
-      require "configs.copilotchat"
-    end,
-  },
-
-  {
     "nvim-telescope/telescope.nvim",
     dependencies = {
       {
