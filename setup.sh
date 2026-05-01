@@ -43,7 +43,7 @@ else
 fi
 
 # Install packages via Homebrew
-PACKAGES=(neovim wezterm font-jetbrains-mono-nerd-font fzf nodenv ripgrep im-select)
+PACKAGES=(neovim wezterm font-jetbrains-mono-nerd-font fzf ripgrep im-select)
 
 for package in "${PACKAGES[@]}"; do
     if brew list "$package" &> /dev/null || brew list --cask "$package" &> /dev/null; then
@@ -52,17 +52,6 @@ for package in "${PACKAGES[@]}"; do
         brew install "$package"
     fi
 done
-
-# Install Node.js 22.15.0 via nodenv if not already installed
-if command -v nodenv &> /dev/null; then
-    if nodenv versions | grep -q "22.15.0"; then
-        echo "✓ Node.js 22.15.0 already installed"
-    else
-        nodenv install 22.15.0
-    fi
-else
-    echo "⚠ nodenv not available, skipping Node.js installation"
-fi
 
 echo ""
 echo ""
