@@ -27,11 +27,6 @@ if [ ! -L ~/.gitconfig ]; then
     echo "✓ Created gitconfig symlink"
 fi
 
-if [ ! -L ~/.config/wezterm ]; then
-    ln -s ~/dotfiles/.config/wezterm ~/.config/wezterm
-    echo "✓ Created wezterm symlink"
-fi
-
 # Install Homebrew if not already installed
 if ! command -v brew &> /dev/null; then
     /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
@@ -48,7 +43,7 @@ else
 fi
 
 # Install packages via Homebrew
-PACKAGES=(neovim wezterm tmux font-jetbrains-mono-nerd-font fzf ripgrep)
+PACKAGES=(neovim tmux font-jetbrains-mono-nerd-font fzf ripgrep)
 
 for package in "${PACKAGES[@]}"; do
     if brew list "$package" &> /dev/null || brew list --cask "$package" &> /dev/null; then
