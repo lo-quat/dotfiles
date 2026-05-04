@@ -2,10 +2,6 @@ if [[ ":$PATH:" != *":/opt/homebrew/bin:"* ]]; then
     eval "$(/opt/homebrew/bin/brew shellenv)"
 fi
 
-if ! command -v nodenv &> /dev/null || [[ -z "$NODENV_ROOT" ]]; then
-    eval "$(nodenv init -)"
-fi
-
 source <(fzf --zsh)
 export FZF_DEFAULT_OPTS='--height=30%'
 export EDITOR='nvim'
