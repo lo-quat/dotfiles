@@ -1,0 +1,33 @@
+# --- basic colors ---
+foreground = #a1a6b2
+background = #171b20
+
+cursor-color = #a1a6b2
+selection-background = #21262e
+selection-foreground = #a1a6b2
+
+# --- ANSI colors (0-7) ---
+palette = 0=#171b20
+palette = 1=#e79da4
+palette = 2=#98c379
+palette = 3=#f3e1ad
+palette = 4=#86aaec
+palette = 5=#c397d8
+palette = 6=#70b0ba
+palette = 7=#a1a6b2
+
+# --- bright colors (8-15) ---
+palette = 8=#21262e
+palette = 9=#e79da4
+palette = 10=#98c379
+palette = 11=#f3e1ad
+palette = 12=#86aaec
+palette = 13=#c397d8
+palette = 14=#70b0ba
+palette = 15=#a1a6b2
+
+
+# ウィンドウ内側の余白をゼロにする
+window-padding-x = 0
+window-padding-y = 0
+

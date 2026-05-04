@@ -12,6 +12,11 @@ fi
 
 mkdir -p ~/.config
 
+if [ ! -L ~/.config/ghostty ]; then
+    ln -s ~/dotfiles/.config/ghostty ~/.config/ghostty
+    echo "✓ Created ghostty symlink"
+fi
+
 if [ ! -L ~/.config/tmux ]; then
     ln -s ~/dotfiles/.config/tmux ~/.config/tmux
     echo "✓ Created tmux symlink"
@@ -43,7 +48,7 @@ else
 fi
 
 # Install packages via Homebrew
-PACKAGES=(neovim tmux font-jetbrains-mono-nerd-font fzf ripgrep)
+PACKAGES=(neovim tmux font-jetbrains-mono-nerd-font fzf ripgrep ghostty)
 
 for package in "${PACKAGES[@]}"; do
     if brew list "$package" &> /dev/null || brew list --cask "$package" &> /dev/null; then
