@@ -6,6 +6,7 @@ source <(fzf --zsh)
 export FZF_DEFAULT_OPTS='--height=30%'
 export EDITOR='nvim'
 export VISUAL='nvim'
+bindkey -e
 
 autoload -Uz vcs_info
 
