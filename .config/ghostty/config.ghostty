@@ -1,3 +1,6 @@
+font-family = "JetBrainsMono Nerd Font"
+font-feature = -dlig,-liga,-calt
+
 # --- basic colors ---
 foreground = #a1a6b2
 background = #171b20
