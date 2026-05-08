@@ -7,7 +7,7 @@ config-version = 2
 
 # You can use it to add commands that run after AeroSpace startup.
 # Available commands : https://nikitabobko.github.io/AeroSpace/commands
-after-startup-command = []
+after-startup-command = ['exec-and-forget borders style=round width=6.0 hidpi=on active_color=0xff00FFFF inactive_color=0xff414550']
 
 # Start AeroSpace at login
 start-at-login = false
