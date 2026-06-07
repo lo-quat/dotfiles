@@ -1,4 +1,5 @@
 font-family = "JetBrainsMono Nerd Font"
+# font-family = "Hiragino Sans"
 font-feature = -dlig,-liga,-calt
 
 # --- basic colors ---
