@@ -9,6 +9,7 @@ if not vim.loop.fs_stat(lazypath) then
   vim.fn.system { "git", "clone", "--filter=blob:none", repo, "--branch=stable", lazypath }
 end
 
+vim.opt.title = true
 vim.opt.rtp:prepend(lazypath)
 
 local lazy_config = require "configs.lazy"
@@ -62,6 +63,6 @@ vim.cmd "language en_US.UTF-8"
 
 vim.api.nvim_create_autocmd("InsertLeave", {
   callback = function()
-    vim.fn.jobstart({ "im-select", "com.apple.keylayout.ABC" })
+    vim.fn.jobstart { "im-select", "com.apple.keylayout.ABC" }
   end,
 })
