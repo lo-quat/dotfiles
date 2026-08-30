@@ -1,9 +1,6 @@
 return {
   defaults = { lazy = true },
-  install = {
-    colorscheme = { "nvchad" },
-    missing = false,
-  },
+  install = { colorscheme = { "nvchad" } },
 
   git = {
     timeout = 100,
