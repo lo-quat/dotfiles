@@ -1,0 +1,32 @@
+{
+  "hooks": {
+    "PostToolUse": [
+      {
+        "matcher": "Bash",
+        "hooks": [
+          {
+            "type": "command",
+            "if": "Bash(gh pr create *)",
+            "asyncRewake": true,
+            "timeout": 7200,
+            "command": "bash ~/.claude/hooks/hunk-review-watch.sh"
+          },
+          {
+            "type": "command",
+            "if": "Bash(hunk session comment add *)",
+            "asyncRewake": true,
+            "timeout": 7200,
+            "command": "bash ~/.claude/hooks/hunk-review-watch.sh"
+          },
+          {
+            "type": "command",
+            "if": "Bash(bash ~/.claude/hooks/hunk-review-watch.sh start*)",
+            "asyncRewake": true,
+            "timeout": 7200,
+            "command": "bash ~/.claude/hooks/hunk-review-watch.sh"
+          }
+        ]
+      }
+    ]
+  }
+}
