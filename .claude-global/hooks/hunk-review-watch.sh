@@ -83,10 +83,12 @@ EOF
         jq -r '.[] | "- \(.noteId)  \(.filePath):\((.newRange // .oldRange // [])[0] // "?")  \(.body | gsub("\n"; " / "))"' <<<"$notes"
         cat <<EOF
 
-How to respond (user's chosen policy: reply only, do not change code):
-- For each comment, reply in Hunk: hunk session comment add $sid --reply-to <noteId> --summary "<answer or proposed fix>"
+How to respond (user's chosen policy: act on change requests, reply to everything):
+- If a comment asks for a change, make it in the working tree, then reply with what you changed.
+- If a comment is a question or is unclear, answer or ask in the reply instead of guessing.
+- Reply to each comment in Hunk: hunk session comment add $sid --reply-to <noteId> --summary "<what you changed or your answer>"
   Pass --focus on the first reply so the user sees agent notes.
-- Do NOT edit files, commit, or push based on these comments; propose changes in the reply and wait for the user's instruction.
+- Do not commit or push unless a comment explicitly asks for it.
 - Replying re-arms this watcher automatically. If the user says the review is done, run: bash ~/.claude/hooks/hunk-review-watch.sh stop "$root"
 EOF
       } >&2
