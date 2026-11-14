@@ -27,6 +27,13 @@ if [ ! -L ~/.config/nvim ]; then
     echo "✓ Created nvim symlink"
 fi
 
+# Hunk: link only config.toml (~/.config/hunk also holds local state)
+mkdir -p ~/.config/hunk
+if [ ! -L ~/.config/hunk/config.toml ]; then
+    ln -s ~/dotfiles/.config/hunk/config.toml ~/.config/hunk/config.toml
+    echo "✓ Created hunk config symlink"
+fi
+
 if [ ! -L ~/.gitconfig ]; then
     ln -s ~/dotfiles/.gitconfig ~/.gitconfig
     echo "✓ Created gitconfig symlink"

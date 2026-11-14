@@ -1,0 +1,41 @@
+# Hunk user config (~/.config/hunk/config.toml)
+# https://www.hunk.dev/docs/configure/layout-and-display/
+# https://www.hunk.dev/docs/reference/config/
+#
+# Shared settings must come before any [table] header.
+# Values below are Hunk's defaults; change what you want.
+
+# Layout: "auto" | "split" | "unified"
+mode = "auto"
+# In auto mode, switch to split at this width (columns)
+auto_split_min_width = 160
+# "terminal" | "auto" | built-in theme id | custom theme id
+theme = "github-dark-default"
+
+line_numbers = true
+wrap_lines = false
+hunk_headers = true
+tab_width = 4
+file_gap = 1
+hunk_gap = 0
+menu_bar = false
+animations = false
+# "auto" | true | false
+sidebar = "auto"
+transparent_background = true
+# "row" | "number" | "off"
+cursor_line = "row"
+scroll_off = 5
+
+agent_notes = false
+copy_decorations = false
+
+# Per-command overrides, e.g.:
+# [vcs]
+# mode = "split"
+# watch = true
+#
+# [pager]
+# mode = "unified"
+# wrap_lines = true
+prompt_save_view_preferences = false
