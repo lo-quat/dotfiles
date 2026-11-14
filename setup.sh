@@ -86,6 +86,16 @@ else
     echo "✓ Claude hooks already registered"
 fi
 
+# Claude Code: apply settings from .claude-global/settings.json (deep merge; dotfiles values win)
+merged=$(jq -s '.[0] * .[1]' "$CLAUDE_SETTINGS" ~/dotfiles/.claude-global/settings.json) || { echo "✗ Failed to merge Claude settings"; exit 1; }
+if [ "$merged" != "$(jq . "$CLAUDE_SETTINGS")" ]; then
+    cp "$CLAUDE_SETTINGS" "$CLAUDE_SETTINGS.bak"
+    printf '%s\n' "$merged" > "$CLAUDE_SETTINGS"
+    echo "✓ Applied Claude settings to settings.json (backup: settings.json.bak)"
+else
+    echo "✓ Claude settings already applied"
+fi
+
 # Claude Code: skills bundled with Hunk (installed separately)
 for skill in hunk-review hunk-extensions; do
     if [ -d ~/.hunk/skills/$skill ] && [ ! -L ~/.claude/skills/$skill ]; then
